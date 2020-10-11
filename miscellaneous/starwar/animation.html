@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        div {
+            width: 100px;
+            height: 200px;
+            background: red;
+            animation: myfirst 10s infinite;
+            -webkit-animation: myfirst 10s;
+            position: relative;
+        }
+        @keyframes myfirst {
+            0% {background: black;top: 0px;left: 0px;}
+            25% {background: yellow;top: 0px;left: 200px;}
+            50% {background: violet;top: 200px;left: 500px;}
+            75% {background: turquoise;top: 400px;left: 300px;}
+            100% {background: green;top: 0px;left: 0px;}
+        }
+        @-webkit-keyframes myfirst{
+            0% {background: black;top: 0px;left: 0px;}
+            25% {background: yellow;top: 0px;left: 200px;}
+            50% {background: violet;top: 200px;left: 500px;}
+            75% {background: turquoise;top: 400px;left: 300px;}
+            100% {background: green;top: 0px;left: 0px;}
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
