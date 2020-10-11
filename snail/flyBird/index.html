@@ -1,0 +1,79 @@
+<!-- 快捷方式：! -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 快捷方式：link -->
+    <link rel="stylesheet" href="./css/index.css">   
+    <title>FlyBird</title>
+</head>
+<body>
+    <!-- 背景 -->
+    <div id="wrapBg">
+        <!-- 开始标题 -->
+        <div id="headTitle">
+            <img src="img/bird0.png" alt="" id="headBird">
+        </div>
+        <!-- 开始按钮 -->
+        <button id="startBtn"></button>
+        <!-- 草地 -->
+        <div id="grassLand1"></div>
+        <div id="grassLand2"></div>
+    </div>
+    <script src="./js/bird.js"></script>
+    <script src="./js/baseObj.js"></script>
+    <script src="./js/block.js"></script>
+    <script>
+        // 标题动画,先拿到这个标题的dom结构
+        var jsWrapBg = document.getElementById('wrapBg');   //通过id获取背景的dom结构
+        var jsHeadTitle = document.getElementById('headTitle');   //通过id获取开始标题的dom结构
+        var jsHeadBird = document.getElementById('headBird');   //通过id获取标题里的鸟的dom结构
+        var Y = 3;   // 标题的摆动幅度,这里设置为3（像素）
+        var index = 0;   //imgArr的下标变量
+        var imgArr = ['img/bird0.png' , 'img/bird1.png'];   //通过一个数组来变换标题鸟的图片
+        var headWaveTimer = setInterval(headWave,200);   //设置一个返回ID值为headWaveTimer的定时器，用于实现标题浮动
+        function headWave(){    //headWaveTimer定时器的被调用函数headWave
+            Y *= -1;
+            // 设置标题dom结构的top值，加上摆动幅度
+            jsHeadTitle.style.top = jsHeadTitle.offsetTop + Y + 'px';
+            // bird图片通过数组来实现的变换
+            jsHeadBird.src = imgArr[index++];
+            if(index == 2){   //如果index（数组下标）等于2了，将它变回0
+                index = 0;
+            }
+        }
+
+        // 草地动画
+        var jsGrassLand1 = document.getElementById('grassLand1');   // 获取草地1的dom结构
+        var jsGrassLand2 = document.getElementById('grassLand2');   // 获取草地2的dom结构
+        setInterval(landRun , 30);   // 设置一个定时器，用于实现草地的视觉移动效果
+        function landRun() {
+            if ( jsGrassLand1.offsetLeft <= -343) {   //如果草地1的left值<-343,即移出了背景
+                jsGrassLand1.style.left = '343px';    //将草地1的left值设置为343，即最开始草地2的位置
+            }
+            if ( jsGrassLand2.offsetLeft <= -343) {   //草地2与草地1同理
+                jsGrassLand2.style.left = '343px';
+            }
+            //每段间隔left减少3像素
+            jsGrassLand1.style.left = jsGrassLand1.offsetLeft - 3 + 'px';
+            jsGrassLand2.style.left = jsGrassLand2.offsetLeft - 3 + 'px';
+        }
+
+        // 开始按钮
+        var jsStartBtn = document.getElementById('startBtn');  //获取开始按钮的dom结构
+        jsStartBtn.onclick = function() {
+            jsHeadTitle.style.display = 'none';   // 隐藏标题
+            jsStartBtn.style.display = 'none';   // 隐藏按钮
+            clearInterval(headWaveTimer);   // 关闭（清除）headWavaTimer定时器
+            // 插入小鸟到页面中
+            bird.showBird(jsWrapBg);
+            bird.flyBird();
+            bird.wingWave();
+            jsWrapBg.onclick = function() {
+                bird.fallSpeed = -8;
+            }
+        }
+    </script>
+</body>
+</html>
