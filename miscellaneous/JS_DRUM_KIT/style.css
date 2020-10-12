@@ -7,7 +7,7 @@ html {
   background: url("https://img.36krcdn.com/20201012/v2_5431a27f30ea4cb5803afc5c1de131eb_img_jpg?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center") bottom center;
   background-size: cover;
 }
-body,
+body, 
 html {
   margin: 0;
   padding: 0;
