@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 去掉浏览器默认样式 */
+        * {  
+            margin: 0;
+            padding: 0;
+        }
+        .wrap {
+            background-color: red;
+        }
+        .last {
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+            /* display: inline-block;
+            vertical-align: middle; */
+        }
+        ul {
+            font-size: 0;
+            /* 吧list的点去掉 */
+            list-style: none;
+
+            /* display: inline-block; */
+            /* 拦腰对齐 */
+            /* vertical-align: middle;  */
+
+            /* 加了下面这个就当于把这个声明了成为了bfc容器，bfc天生解决浮动高度坍塌问题 */
+            /* overflow: hidden; */
+
+            /* 无赖，杀敌一千自损八百 */
+            /* float: left; */
+        }
+        /* 行内元素无法设置宽高 */
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            text-align: center;
+            line-height: 100px;
+
+            /* 行内块级 */
+            /* 会造成换行空格 解决办法见ul里的font-size*/
+            /* display: inline-block; */
+
+            font-size: 16px;
+            float: left;
+        }
+        /* 伪类 */
+        /* .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        } */
+    </style>
+</head>
+<body>
+    <!-- div是块级元素，list也是块级元素 -->
+    <div class="wrap">
+        <ul class="clearfix">
+            <li class="item">1</li>
+            <li class="item">2</li>
+            <li class="item">3</li>
+            <li class="item">4</li>
+
+            <!-- 清除浮动 -->
+            <!-- <li style="clear:both"></li> -->
+
+        </ul>
+        <div class="last">5</div>
+    </div>
+</body>
+</html>
