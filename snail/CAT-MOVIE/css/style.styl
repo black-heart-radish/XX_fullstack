@@ -1,0 +1,149 @@
+*
+    margin 0
+    padding 0
+
+ul li
+    list-style none
+#toast
+    display none
+.movie
+    width 100%
+    &-head
+        width 100%
+        height 40px
+        line-height 40px
+        background-color #1e2025
+        color: #ffffff
+        padding 0 10px
+        box-sizing: border-box
+        display: flex
+        .iconfont
+            width 16px
+        .title
+            flex: 1
+            text-align center
+    &-info 
+        padding 15px
+        background-color #1e2025
+        &__desc
+            width 100%
+            display: flex
+            .info-pic
+                width 122px
+                height 165px
+                overflow hidden
+                img 
+                    width 100%
+            .info-container
+                flex: 1
+                color: #9b9da2
+                font-size 12px
+                margin-left 10px
+                .name
+                    color: #ffffff
+                    font-size: 24px
+                    font-family Arial,sans-serif
+                    font-weight normal
+                .type
+                    span 
+                        width 40px
+                        height 14px
+                        display inline-block
+                        background-image url(https://s0.meituan.net/bs/myfe/canary/file/asgard/images/movie/movie-tag-2DIMAX.png)
+                        background-size cover
+                        vertical-align: middle
+                .btn-wrap
+                    display flex
+                    margin-top 20px
+                    .flex
+                        height 32px
+                        border-radius 5px
+                        background-color #58575d
+                        flex: 1
+                        text-align center
+                        line-height 32px
+                        color: #ffffff
+                        &:nth-child(2)
+                            margin-left 10px
+                        .iconfont
+                            font-size 14px
+        &__rate
+            background-color #161619
+            padding 10px
+            border-radius 4px
+            margin-top 15px
+            .rate-title
+                display: flex
+                justify-content: space-between
+                &__left
+                    color: #ffffff
+                    .icon-maoyandianying
+                        color: red
+                &__right
+                    color: #68686b
+                    font-size 12px
+            .rate-detail
+                display: flex
+                &__left
+                    flex: 454
+                    display: flex
+                    .grade
+                        // margin-left 15px
+                        text-align center
+                        h2
+                            color: #fcc300
+                        p
+                            color: #68686b
+                    .star
+                        // margin-right 15px
+                        text-align right
+                        display: flex
+                        align-items center
+                        .list
+                            margin 2px 0
+                            display: flex
+                            align-items: center
+                            .star-num
+                                font-size: 0
+                                width 40px
+                                img 
+                                    width 8px
+                                    height 8px
+                            .percent
+                                width 78px
+                                height 4px
+                                background-color #252528
+                                position relative
+                                .percent-val
+                                    display: block
+                                    position absolute
+                                    left 0
+                                    top 0
+                                    height 100%
+                                    background-color #fcc300
+                                    width 80%
+                &__right
+                    flex: 266
+                    display flex
+                    align-items center
+                    img 
+                        height 46px
+    &-desc
+        padding 15px
+        .line-clamp
+            display: -webkit-box
+            -webkit-box-orient: vertical
+            -webkit-line-clamp 3
+            word-wrap: break-word
+            word-break: break-all
+            overflow hidden
+        .arrow
+            text-align center
+            .iconfont
+                display: block
+                transition: all 1s ease
+                transform: rotateZ(0deg)
+        .arrow .up
+            display block
+            transform: rotateZ(180deg)
+                    
