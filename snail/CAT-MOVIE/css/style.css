@@ -183,3 +183,29 @@ ul li {
   display: block;
   transform: rotateZ(180deg);
 }
+.movie .actor-list #title {
+  font-size: 20px;
+}
+.movie .actor-list ul {
+  display: flex;
+  overflow-x: scroll;
+}
+.movie .actor-list ul li {
+  flex: 1;
+}
+.movie .actor-list ul li a {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.movie .actor-list ul li a .name {
+  color: #000;
+  margin-top: 1px;
+}
+.movie .actor-list ul li a .role {
+  color: #9b9da2;
+}
+.movie .actor-list ul .left-margin {
+  margin-left: 1em;
+}
