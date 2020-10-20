@@ -22,6 +22,7 @@ Page({
     let length = this.data.arrList.length
     if (length >= 30) return []
     // Array.from把类数组变成数组
+    // array.from({length: 5}, (v, i) => i); v是value这里为undefined i是下标 =>箭头函数
     return Array.from({length: 3}, (v, i) => `数据${1 + i + length}`)
   },
 
