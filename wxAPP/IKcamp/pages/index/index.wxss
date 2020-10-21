@@ -1,0 +1,33 @@
+/* pages/index/index.wxss */
+.group-bar {
+    height: 110rpx;
+    position: relative;
+}
+.group-bar .group-title {
+    height: 40rpx;
+    width: 144rpx;
+    border: 2rpx solid #e3e3e3;
+    border-radius: 10rpx;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 40rpx;
+}
+.group-bar .on {
+    background-color: green;
+}
+.group-content-item {
+    display: flex;
+}
+.group-content-item-desc {
+    margin-left: 27rpx;
+    flex: 1;
+}
+.group-content-item-img {
+    width: 262rpx;
+    height: 194rpx;
+    margin: 6rpx 37rpx;
+}
+
