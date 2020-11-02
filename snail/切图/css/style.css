@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.head {
+  background: url("../image/section1-bg.png") no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 813px;
+}
+.head .title {
+  margin: 0 auto;
+  padding-top: 225px;
+  font-family: sans-serif;
+  font-size: 60px;
+  width: 708px;
+  text-align: center;
+  line-height: 75px;
+}
+.head .video {
+  background: url("../image/video-icon.png") no-repeat;
+  width: 59px;
+  height: 59px;
+  margin: 43px auto 0;
+}
+.head .head_bottom {
+  margin: 39px auto 0;
+  text-align: center;
+}
+.head .head_bottom .btn {
+  background-color: #ff6d6d;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  width: 190px;
+  height: 50px;
+  border: 0;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+.head .head_bottom .details {
+  color: #282828;
+  opacity: 0.6;
+  margin-top: 19px;
+}
+.second_potion {
+  width: 100%;
+  height: 724px;
+  display: flex;
+}
+.second_potion .article {
+  flex: 872;
+}
+.second_potion .triangle {
+  flex: 568;
+  background-color: #ededed;
+}
