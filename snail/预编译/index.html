@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 可以打印111，函数声明整体提升
+        // test();
+        // function test() {
+        //     var a = 111;
+        //     console.log(a);
+        // }
+        // 相当于
+        // function test() {
+        //     var a = 111;
+        //     console.log(a);
+        // }
+        // test();
+
+        // var a = 1;
+        // function fn(a) {
+        //     console.log(a);
+        //     var a = 2;
+        //     function a() {}
+        //     var b = a;
+        //     console.log(a);
+        //     console.log(b);
+        // }
+
+        // 预编译
+        // AO(Activation Object): {
+        //     先找形参与变量声明
+        //     a(形参): undefined
+        //     a(变量声明): undefined
+        //     b(变量声明): undefined
+        //     开始新参实参统一
+        //     a: undefined -> 3
+        //     在函数体里找函数声明
+        //     a: undefined -> 3 -> function() {}
+        // }
+        // 开始执行代码
+        // var a = 2
+        // a: undefined -> 3 -> function() {} -> 2
+        // var b = a
+        // b: undefined -> 2
+
+        // fn(3);
+
+        // function fn(a) {
+        //     console.log(a);
+        //     var a = 123;
+        //     console.log(a);
+        //     function a() {}
+        //     console.log(a);
+        //     var b = function() {}
+        //     console.log(b);
+        //     function d() {}
+        //     var d = a;
+        //     console.log(d);
+        // }
+
+        // 创建AO对象
+        // a: undefined -> 1 -> function() {}
+        // b: undefined
+        // d: undefined -> function() {}
+        // 开始执行
+        // var a = 123
+        // a: undefined -> function() {} -> 123
+        // var b = function() {}
+        // b: undefined -> function() {}
+        // var d = a
+        // d: undefined -> function() {} -> 123
+
+        // fn(3);
+
+
+        // function test(a, b) {
+        //     console.log(a);  // 1
+        //     c = 0;
+        //     var c;
+        //     a = 3;
+        //     b = 2;
+        //     console.log(b);  // 2
+        //     function b() {}
+        //     function d() {}
+        //     console.log(b);  // 2
+        // }
+        // test(1)
+        // AO {
+        //     a: undefined -> 1
+        //     b: undefined -> function() {}
+        //     c: undefined
+        //     d: function() {}
+        // }
+
+
+        // var global = 100;
+        // function fn() {
+        //     console.log(global);
+        // }
+        // fn();
+        // GO {
+        //     global: undefined -> 100
+        //     fn: function() {
+        //         console.log(global);
+        //     }
+        // }
+        // AO {
+
+        // }
+
+
+
+        global = 100;
+        function fn() {
+            console.log(global); // undefined
+            global = 200;
+            console.log(global); // 200
+            var global = 300;
+        }
+        fn();
+        var global;
+        console.log(global);  // 100
+        // GO {
+        //     global: undefined
+        //     fn: function() {
+        //         console.log(global);
+        //         global = 200;
+        //         console.log(global);
+        //         var global = 300;
+        //     }
+        // }
+        // AO {
+        //     global: undefined
+        // }
+    </script>
+</body>
+</html>
