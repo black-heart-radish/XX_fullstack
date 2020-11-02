@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: url(img/bg.jpg) no-repeat;
+    /* 图片大小 */
+    background-size: 100% 100%;
+    width: 100%;
+    /* height 一般不写，让子容器撑开 */
+    height: 720px;
+}
+.mask {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 14, 14, .65);
+}
+.title {
+    /* 文本居中 */
+    text-align: center;
+    font-size: 62px;
+    font-family: Montserrat;
+    font-weight: 200;
+    color: #FFFFFF;
+    line-height: 72px;
+    padding-top: 100px;
+}  
+.desc {
+    width: 766px;
+    margin: 86px auto 0;
+    font-size: 20px;
+    font-family: Montserrat;
+    font-weight: 200;
+    color: #FFFFFF;
+    line-height: 32px;
+    opacity: 0.7;
+    text-align: center;
+}
+.sign-up {
+    width: 970px;
+    border: 1px solid white;
+    border-radius: 2px;
+    /* 盒子设定宽度，盒子居中 */
+    margin: 0 auto;
+}
+input {
+    outline: none;
+    border: 1px solid #666;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    padding: 18px 22px;
+    margin-top: 148px;
+    margin-bottom: 52px;
+}
+input[type="text"] {
+    width: 292px;
+    margin-left: 100px;
+}
+input[type="password"] {
+    width: 292px;
+    margin-left: 30px;
+}
+button {
+    margin-left: 30px;
+}
+
+
+
+/* 在这没用，可以注释，就是认识一下而已 */
+@font-face {
+    /* 定义字体，名字为iconfont */
+    font-family: "iconfont";
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

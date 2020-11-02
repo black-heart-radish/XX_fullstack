@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- *, +, space, >, -->
+    <style>
+        /* 兄弟之间才会有 */
+        /* li + li::before {
+            content: '|';
+        } */
+
+        /* 
+        !important                          (优先级: 1-0-0-0-0    最高)
+        行内样式                               (优先级: 1-0-0-0    第二高)
+        id                                      (优先级: 1-0-0)
+        class                                   (优先级: 0-1-0)
+        tag: div li                             (优先级: 0-0-1)
+        attr: [type="text"]                     (优先级: 0-1-0   与class 同级)
+        */
+        /* 0-1-0 + 0-1-0 = 0-2-0   但永远不会进位 */
+        .cls.cls2 {
+
+        }
+        /* 这样会选择最下面的，上面的被覆盖 */
+        .p1 {
+            color: red;
+        }
+        .p2 {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <ul id="id" class="cls cls2">
+        <li>MIUI</li>
+        <li>TOT</li>
+        <li>MI</li>
+    </ul>
+    <p class="p1 p2">ppppppppppp</p>
+</body>
+</html>
