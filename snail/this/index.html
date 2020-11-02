@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 'use strict';
+        // function foo() {
+        //     console.log(this);
+        // }
+        // foo();
+
+
+
+        // function foo() {
+        //     let person = {
+        //         name: 'wn',
+        //         age: 18
+        //     }
+        //     console.log(this);
+        // }
+
+        // function bar() {
+        //     let person = {
+        //         name: '蜗牛',
+        //         age: 20
+        //     }
+        //     foo();
+        // }
+        // bar()
+
+
+
+        // function foo() {
+        //     console.log(this.a);
+        // }
+        // var a = 2;
+        // // foo()
+        // (function(){
+        //     'use strict'
+        //     foo()    // 严格模式下，foo的调用与位置无关
+        // })()
+
+
+
+        // 隐式绑定
+        // function foo() {
+        //     console.log(this.a);
+        // }
+        // var obj2 = {
+        //     a: 3,
+        //     foo: foo
+        // }
+        // var obj1 = {
+        //     a: 2,
+        //     obj2: obj2
+        // }
+        // obj1.obj2.foo()
+
+
+
+
+        function foo() {
+            console.log(this.a);
+        }
+        var obj = {
+            a: 3,
+            foo: foo
+        }
+        var bar = obj.foo;
+        var a = 'Hello';
+        bar()
+    </script>
+</body>
+
+</html>
