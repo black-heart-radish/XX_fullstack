@@ -65,16 +65,61 @@
 
 
 
-        function foo() {
-            console.log(this.a);
+        // function foo() {
+        //     console.log(this.a);
+        // }
+        // var obj = {
+        //     a: 3,
+        //     foo: foo
+        // }
+        // var bar = obj.foo;
+        // var a = 'Hello';
+        // bar()
+
+
+        // call方法，传参方式是直接在后面加
+        // var a = {
+        //     user: '蜗牛',
+        //     fn: function(q, w) {
+        //         console.log(this.user);
+        //         console.log(q + w);
+        //     }
+        // }
+        // var b = a.fn;
+        // b.call(a, 2, 3);
+
+
+
+        // apply方法，传参方式是数组
+        // var a = {
+        //     user: '蜗牛',
+        //     fn: function(q, w) {
+        //         console.log(this.user);
+        //         console.log(q + w);
+        //     }
+        // }
+        // var b = a.fn;
+        // b.apply(a, [12, 34]);
+
+
+
+
+        // bind方法返回的是一个函数
+        var a = {
+            user: '蜗牛',
+            fn: function(q, w) {
+                console.log(this.user);
+                console.log(q + w);
+            }
         }
-        var obj = {
-            a: 3,
-            foo: foo
-        }
-        var bar = obj.foo;
-        var a = 'Hello';
-        bar()
+        var b = a.fn;
+        // var c = b.bind(a, 4, 5);
+        var c = b.bind(a);
+        c(4, 5);
+
+        // 如果都传就是20，在b里面生效
+        // var c = b.bind(a, 15, 5);
+        // c(4, 5);
     </script>
 </body>
 

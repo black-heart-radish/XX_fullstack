@@ -10,4 +10,7 @@ this所处的词法作用域在哪里生效了，this的作用域就指向哪里
 
 - 隐式丢失
 
-## 显示绑定
+## 显式绑定
+
+call   apply   bind
+如果call, apply, bind 的第一个参数写的是null，那么this指向的是window对象
