@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 深浅拷贝
+        // var a = 1;
+        // var b = a;
+        // a = 2;
+        // console.log(b);
+
+        Person.prototype.name = 'wn';
+        function Person() {
+
+        }
+        var person = new Person();
+        // Person.prototype.name = '蜗牛';   // 这种打印的是蜗牛，这是修改属性
+        Person.prototype = {    // 这种打印的是wn，这是重写
+            name: '蜗牛'
+        }
+        console.log(person.name);
+    </script>
+</body>
+</html>

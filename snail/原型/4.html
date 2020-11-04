@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // new 构造函数三部曲
+        // function Person() {
+        //     var this = {    // 1步
+        //         __proto__: Person.prototype   // 2步
+        //     }
+        //     return this;    // 3步
+        // }
+        Person.prototype.name = 'wn';
+        function Person() {
+
+        }
+        var person = new Person();
+        console.log(person);
+
+        // var obj = new Object();
+        var obj = {
+            name: '蜗牛'
+        }
+        person.__proto__ = obj;
+        console.log(person.name);
+        // __proto__指向谁就上谁那里找属性
+    </script>
+</body>
+</html>
