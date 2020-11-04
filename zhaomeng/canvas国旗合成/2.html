@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [{a: 1}, {a: 2}, {a: 3}];
+        // [1, 2, 3]
+        // map 映射
+        let newArr = arr.map((item) => {
+            // console.log(item);
+            return item.a;
+        })
+        console.log(newArr);
+        // [<li>1</li>, <li>2</li>, <li>3</li>]
+        let arr1 = arr.map((item) => {
+            // 也可以用这些
+            // let li = document.createElement('li')
+            return `<li>${item.a}</li>`
+        })
+        console.log(arr1);
+        arr.forEach((item) => {
+            console.log(item);
+        })
+
+
+        let arr2 = [1, 2, 3, 4, 5, 6];
+        // reduce 循环意思  叠加
+        // 1. pre: -> 0 item: -> 1   =>1
+        // 2. pre: -> 1 item: -> 2   =>3
+        // 3. pre: -> 3 item: -> 3   =>6
+        // 4. pre: -> 6 item: -> 4   =>10
+        // 5. pre: -> 10 item: -> 5   =>15
+        // 6. pre: -> 15 item: -> 6   =>21
+        let sum = arr2.reduce((pre, item) => {
+            return pre + item;
+        }, 0);
+        // 这个0是pre的初始值
+        console.log(sum);
+
+        // {a: 1, b: 2, c: 3}
+        // 1. pre: -> {} item: -> {a: 1}   =>{a: 1}
+        // 2. pre: -> {a: 1} item: -> {b: 2}   =>{a: 1, b: 2}
+        // 3. pre: -> {a: 1, b: 2} item: -> {c: 3}   =>{a: 1, b: 2, c: 3}
+        let arr3 = [{a: 1}, {b: 2}, {c: 3}];
+        let arr4 = arr3.reduce((pre, item) => {
+            return {
+                // ...有点像去掉花括号样的
+                ...pre,
+                ...item
+            }
+            // Object.assign()  这个也是合并
+        }, {});
+        console.log(arr4);
+    </script>
+</body>
+</html>
