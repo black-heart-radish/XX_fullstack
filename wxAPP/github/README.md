@@ -10,3 +10,21 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
+## 复杂组件的交互设计
+
+    提个问题  pickerview
+
+1. button
+2. picker
+    onchange
+    values
+    range[日期  语言]
+
+- 用户体验
+    1. 用户的使用习惯，约等于配置，storage
+        产品懂他
+    2. 约定的用户体验，列表筛选条件发生改变的时候，页面滚到最顶端（划了好多页 + onPullDownRefresh）
+    3. 首页的列表数据要缓存，很快打开，
+        onLoad 加载刷新
+- trends 获取
+    url + callback
