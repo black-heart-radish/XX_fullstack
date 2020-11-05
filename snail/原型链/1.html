@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person() {
+
+        }
+        var person = new Person();
+        // console.log(person);
+        console.log(Person.prototype);
+        // __proto__是用来找原型的
+
+
+        function Grand() {
+
+        }
+        var grand = new Grand();
+        Father.prototype = Grand;
+        function Father() {
+            this.name = '张三';
+            this.fortune = {
+                card: 'visa'
+            }
+        }
+        var father = new Father();
+        Son.prototype = father;
+        function Son() {
+            this.hobbit = 'reading';
+        }
+        var son = new Son();
+        console.log(son.hobbit);
+        console.log(father);
+        console.log(son.name);
+        console.log(son.fortune);
+        son.fortune.card2 = 'master';
+        console.log(son);
+        console.log(father);   // 原型改了  因为fortune是一个引用类型
+    </script>
+</body>
+</html>
