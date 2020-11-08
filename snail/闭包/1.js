@@ -7,6 +7,7 @@ function test() {
     }
     return arr;
 }
+
 var myArr = test();
 for (var j = 0; j < 10; j++) {
     myArr[j]();
