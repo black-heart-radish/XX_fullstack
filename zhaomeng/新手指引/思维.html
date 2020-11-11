@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 版本号
+        // 2.4.1
+        // 2.4.5
+        // 11.9
+        // 4.5.3.1
+        // ['2.3.4', '2.3.5', '2.3.4.1', '11.9']
+
+
+        // 排序
+        // let arr = [0, 1, 2, 3, 9, -1];
+        // console.log(arr.sort());     // [-1, 0, 1, 2, 3, 9]   默认从小到大排序
+
+        // arr.sort((a, b) => b - a);
+        // console.log(arr);               // [9, 3, 2, 1, 0, -1]
+
+        // arr.sort((a, b) => a - b);
+        // console.log(arr);               // [-1, 0, 1, 2, 3, 9]    默认
+
+
+        // 现有两个版本号，比较大小
+        // str1 > str2   -> 1
+        // str1 < str2   -> -1
+        // str1 = str2   -> 0
+        function compare(str1, str2) {
+            // 按位对齐
+            // 相等 -> 继续比下去  
+            // 不相等 -> 得出结果
+
+
+            // 怎么按位对齐
+            let arr1 = str1.split('.'),
+                arr2 = str2.split('.');
+            let len = Math.max(arr1.length, arr2.length);
+            for (let i = 0; i < len; i++) {
+                let a = arr1[i] ? arr1[i] : 0;
+                let b = arr2[i] ? arr2[i] : 0;
+                a = Number(a);
+                b = Number(b);
+                if(a > b) {
+                    return 1;
+                }else if (a < b) {
+                    return -1;
+                }
+            }
+            return 0;
+        }
+
+
+
+
+
+
+        // 斐波那契数列
+        // 0 1 2 3 4 5 6 7  8  9
+        // 0 1 1 2 3 5 8 13 21 34
+        // 1n  bigint
+        function fib(n) {
+            let arr = [0n, 1n];
+            if (n <= 1) {
+                return n;
+            }
+            for (let i = 2; i < n + 1; i++) {
+                arr[i] = arr[i - 1] + arr[i - 2];
+            }
+            console.log(arr[n]);
+        }
+        fib(10000);
+    </script>
+</body>
+</html>
