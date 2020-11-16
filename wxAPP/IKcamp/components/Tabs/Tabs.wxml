@@ -1,0 +1,18 @@
+<!--components/Tabs/Tabs.wxml-->
+<view class="title">
+    <!-- <view class="title-item active">首页</view>
+    <view class="title-item">时讯</view>
+    <view class="title-item">更多</view>
+    <view class="title-item">关于</view> -->
+    <view 
+    wx:for="{{tabs}}" 
+    wx:key="{{id}}" 
+    class="title-item {{item.isActive ? 'active' : ''}}"
+    bindtap= "handleItemTap"
+    data-index= "{{index}}">
+        {{item.name}}
+    </view>
+</view>
+<view class="content">
+    <slot ></slot>
+</view>
