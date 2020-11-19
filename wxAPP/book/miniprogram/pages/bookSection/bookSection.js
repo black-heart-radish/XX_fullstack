@@ -59,7 +59,7 @@ Page({
         userId: app.globalData.openid,
         bookName: this.data.bookDetailData.name
       }).get().then(res => {
-        console.log(res);
+        // console.log(res);
         let data = res.data || [];
         if (data.length > 0) {
           if (data[0].bookUrl != url) {
