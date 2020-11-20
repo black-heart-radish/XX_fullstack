@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: grey;
+            display: inline-block;
+            margin: 30px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+        }
+        .green.light{
+            background-color: green;
+        }
+        .red.light{
+            background-color: red;
+        }
+        .yellow.light{
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="green"></div>
+    <div class="yellow"></div>
+    <div class="red"></div>
+
+    <script>
+        function green() {
+            var lights =document.getElementsByTagName('div');
+            for (var i = 0; i < 3; i++) {
+                lights[i].classList.remove('light')
+            }
+            document.querySelector('.green').classList.add('light')
+        }
+        function red() {
+            var lights =document.getElementsByTagName('div');
+            for (var i = 0; i < 3; i++) {
+                lights[i].classList.remove('light')
+            }
+            document.querySelector('.red').classList.add('light')
+        }
+        function yellow() {
+            var lights =document.getElementsByTagName('div');
+            for (var i = 0; i < 3; i++) {
+                lights[i].classList.remove('light')
+            }
+            document.querySelector('.yellow').classList.add('light')
+        }
+        function light(time) {
+            if (time > 4) return ;
+            green();
+            setTimeout(() => {
+                yellow();
+                setTimeout(() => {
+                    red();
+                    setTimeout(() => {
+                        console.log('done');
+                        light(time++)
+                    },3000)
+                },2000)
+            },1000)
+        }
+        light(0);
+        let p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve();
+            }, 1000)
+        })
+        p.then(() => {
+            console.log("xxx");
+        })
+        let url = 'https://s3.ax1x.com/2020/11/19/DuGA8e.jpg';
+        // let image = new Image();
+        // image.src = url;
+        // img.onload = function() {
+        //     console.log('123');
+        // }
+
+        let p1 = new Promise((resolve, reject) => {
+            let img = new Image();
+            img.src = url;
+            img.onload = function () {
+                resolve();
+            }
+            img.onerror = function() {
+                reject();
+            }
+        })
+        p1.then(() => {
+            console.log(123);
+        })
+        .catch()
+
+
+        let time = (t) => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve();
+            }, 1000)
+        })
+    </script>
+</body>
+</html>
