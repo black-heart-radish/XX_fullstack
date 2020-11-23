@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgba(32, 138, 146, 0.667);
+            text-align: center;
+            color: yellowgreen;
+        }
+        input {
+            margin-top: 5vh;
+            width: 200px;
+            height: 40px;
+            border: 1px solid #fff;
+        }
+        #infos {
+            margin-left: 200px;
+            width: 300px;
+            height: 450px;
+            border: none;
+            overflow: hidden;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to lm</h1>
+    <div id="infos">
+
+    </div>
+    <input type="text" class="" id="send_info" value="" placeholder="请输入您想说的话">
+    <button id="btn">发送</button>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io()
+        document.getElementById('btn').onclick = function() {
+            socket.emit('link_to_server', document.getElementById('send_info').value)
+        }
+
+        // 接收到响应
+        socket.on('link_to_client', (msg) => {
+            document.getElementById('infos').append(msg)
+        })
+    </script>
+</body>
+</html>
