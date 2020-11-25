@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <div v-if="isLogin">
+            {{msg}}
+        </div> 
+        <div v-else="">
+            {{msg2}}
+        </div>
+        <div v-show="isLogin">
+            {{msg}}
+        </div> -->
+
+        <!-- <ul class="news" >
+            <li class="item" v-for="(item, index) in news" ;key="index">{{item.title}}</li>
+        </ul> -->
+
+        <!-- <span>{{msg}}</span>  -  <span v-text="msg2"></span>  <span v-html="msg3"></span> -->
+
+        <!-- <div class="count">
+            本次得分： {{count}}
+            <button v-on:click="add" data-num="1">加分</button>
+            <button @click="add" data-num="-1">加减</button>
+        </div>
+
+
+        
+        <div class="message">
+            <p>文本内容: {{message}}</p>
+            <p>
+                <input type="text" v-model="message">
+            </p>
+        </div> -->
+
+        <!-- 修改属性就要v-bind   v-bind绑定属性-->
+        <!-- <div :class="className">
+            <img v-bind:src="imgUrl" alt="" width="700px" >
+        </div> -->
+
+        <!-- <div v-pre>{{msg}}</div> -->
+        <!-- <div v-cloak>{{msg}}</div>
+        <div>
+            <p v-once>第一次绑定的值： {{message}}</p>
+            <input type="text" v-model="message">
+        </div> -->
+    </div>
+
+    <script>
+        // let dom = document.getElementById('app');
+        // dom.innerHTML = '你好';
+
+        // let data = {
+        //     msg: 'hello world'
+        // }
+        // data.msg = '你好';
+
+
+            let app = new Vue({
+                el: '#app',
+                data: {
+                    msg: 'hello world',
+                    msg2: '傻逼逼',
+                    msg3: '<h2> 憨憨</h2>',
+                    isLogin: true,
+                    news: [
+                        { title: '"空降"不到一周 韩俊任吉林代省长 曾是刘鹤"副手"'},
+                        { title: '上门女婿成村霸，敲诈勒索故意纵火还打伤司法人员'},
+                        { title: 'X光显示肚子内有异物 港媒:黄之锋被关医院单人囚室'},
+                        { title: '特朗普突然出手，举行了史上最短一次记者会！'}
+                    ],
+                    count: 0,
+                    message: 'ddd',
+                    imgUrl: 'https://s3.ax1x.com/2020/11/19/DuGA8e.jpg',
+                    className: 'img'
+                },
+
+                methods: {
+                    add(e) {
+                        let num = parseInt(e.target.dataset.num);
+                        this.count += num;
+                        // console.log(e);
+                    },
+                },
+
+                created() {
+                    // this 后面是要跟的是data里的数据，就可以省略data,本来得this.data.msg
+                    this.msg = 'hello VUE'
+                }
+            })
+    </script>
+</body>
+</html>
