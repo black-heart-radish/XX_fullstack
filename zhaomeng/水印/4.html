@@ -1,0 +1,11 @@
+<script>
+  const observer = new MutationObserver(() => {
+    console.log(1)
+  })
+  // 文本节点
+  const textNode = document.createTextNode(String(1))
+  observer.observe(textNode, {
+    characterData: true
+  })
+  textNode.data = String(2)
+</script>
