@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     getLocalTime() {
-      return new Date().toLocaleTimeString();
+      return new Date().toLocaleTimeString()
     },
     initMap() {
       // 获取当前城市
