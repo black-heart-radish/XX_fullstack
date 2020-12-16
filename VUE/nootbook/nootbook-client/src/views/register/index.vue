@@ -61,6 +61,12 @@ export default {
         }
       }).then (res => {
         console.log(res);
+        if (res.data.code === '80000') {
+          this.$toast('注册成功');
+          this.$router.push('/starLogin')
+        } else {
+          this.$toast(res.data.mess);
+        }
       })
     },
     login () {
