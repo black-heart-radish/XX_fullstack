@@ -1,6 +1,8 @@
 const router = require('koa-router')()
 const userService = require('../controllers/mySqlConfig')
 
+const time = require('../controllers/util')
+
 router.prefix('/users')
 
 // router.get('/', function (ctx, next) {
@@ -148,6 +150,33 @@ router.post('/findNoteDetail', async (ctx, next) => {
 })
 
 // 发布笔记
+router.post('/insertNote', async (ctx, next) => {
+  let useId = ctx.request.body.useId;
+  let title = ctx.request.body.title;
+  let note_type = ctx.request.body.note_type;
+  let note_content = ctx.request.body.note_content;
+  let c_time = time;
+  let m_time = time;
+  let head_img = ctx.request.body.head_img;
+  let nickname = ctx.request.body.nickname;
+  let arr = [useId, title, note_type, note_content, c_time, m_time, head_img, nickname]
+  await userService.insertNote(arr).then(res => {
+    console.log(res);
+    if (res.affectedRows != 0) {
+      ctx.body = {
+        code: '80000',
+        data: 'OK',
+        mess: '发布笔记成功'
+      }
+    } else {
+      ctx.body = {
+        code: '80004',
+        data: 'error',
+        mess: '发布笔记失败'
+      }
+    }
+  })
+})
 
 
 module.exports = router

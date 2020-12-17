@@ -12,7 +12,7 @@
       </div>
       <div class="note-title">
         <h2>上传图片</h2>
-        <van-uploader multiple :max-size="500 * 1024" :after-read="onRead" />
+        <van-uploader v-model="fileList" multiple :max-size="500 * 1024" :after-read="onRead" />
         <!-- <img class="preImg" src="" alt=""> -->
       </div>
       <div class="note-title">
@@ -47,6 +47,7 @@ export default {
       title: '',
       preImg: '',
       selectCon: '',
+      fileList: [],
       show: false,
       actions: [
         { name: '选项' }, 
@@ -108,11 +109,14 @@ export default {
           head_img: this.preImg,
           title: this.title,
           note_type: this.selectCon,
-          userId: curUserId,
+          useId: curUserId,
           nickname: nickname
         }
       }).then (res => {
         if (res.data.code === '80000') {
+          this.$toast(res.data.mess)
+          this.$router.push('/noteClass')
+        } else {
           this.$toast(res.data.mess)
         }
       })
